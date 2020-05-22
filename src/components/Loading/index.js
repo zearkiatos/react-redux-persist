@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const Loading = ({message}) => {
+const Loading = () => {
     return(
         <Fragment>
             <h1>

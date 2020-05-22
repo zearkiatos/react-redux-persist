@@ -14,7 +14,7 @@ import {
   const movieReducers = (state = initial_state, action) => {
     switch (action.type) {
       case GET_MOVIES:
-        return {...state, ...action.payload, error: false, loading: false};
+        return {...state, movies: action.payload.movies, error: false, loading: false};
       case LOADING_MOVIE:
         return {...state, loading: true, error: false};
       case ERROR_MOVIE:

@@ -13,9 +13,7 @@ export const getMovies = () => async dispatch => {
       const movies = await Api.getMovies();
       dispatch({
         type: GET_MOVIES,
-        payload: {
-          movies,
-        },
+        payload: { movies },
       });
     } catch (e) {
       console.error(e);

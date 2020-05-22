@@ -1,10 +1,10 @@
 import React from 'react';
-
+import MovieContainer from "../components/movies/containers/index";
 class Home extends React.Component{
     render(){
         return(
             <h1>
-                Hola Mundo!
+                <MovieContainer />
             </h1>
         )
     }
