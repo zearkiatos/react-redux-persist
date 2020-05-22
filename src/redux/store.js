@@ -9,7 +9,7 @@ const reducers = combineReducers({
     movieReducers
 });
 const persistConfig = {
-    key: 'root',
+    key: 'root', //persist:root
     storage: AsyncStorage
   };
 
