@@ -28,6 +28,7 @@ class MovieContainer extends Component{
     }
 }
 const mapStateToProps = ({ movieReducers }) => {
+    
     return {
         movies: movieReducers.movies,
         error: movieReducers.error,

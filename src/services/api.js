@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-community/async-storage';
+
 const BASE_API = 'https://yts.mx/api/v2/';
 
 class Api {
@@ -8,9 +10,15 @@ class Api {
   }
 
   async getMovies() {
-    const query = await fetch(`${BASE_API}list_movies.json?`);
-    const {data} = await query.json();
-    return data.movies;
+    try{
+      const query = await fetch(`${BASE_API}list_movie.json?`);
+      const {data} = await query.json();
+      return data.movies;
+    }
+    catch(e){
+      console.info(`Error: ${e.message}, Get Persist Data`)
+      return this.getMoviesPersist()
+    }
   }
 
   async searchMovie(title) {
@@ -19,6 +27,13 @@ class Api {
     );
     const {data} = await query.json();
     return data.movies;
+  }
+
+  getMoviesPersist = async () => {
+    const { movieReducers } = JSON.parse(await AsyncStorage.getItem("persist:root"))
+    console.log(JSON.parse(movieReducers))
+    const { movies } = JSON.parse(movieReducers)
+    return movies
   }
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {createStore, applyMiddleware, combineReducers} from "redux";
-import {persistStore, persistReducer} from 'redux-persist';
-import storage from 'redux-persist/lib/storage'
+import {persistStore, persistReducer, } from 'redux-persist';
+import AsyncStorage from '@react-native-community/async-storage';
 import reduxThunk from "redux-thunk";
 import movieReducers from "./reducers/movieReducers";
 
@@ -9,8 +9,8 @@ const reducers = combineReducers({
     movieReducers
 });
 const persistConfig = {
-    key: 'movies',
-    storage
+    key: 'root',
+    storage: AsyncStorage
   };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
